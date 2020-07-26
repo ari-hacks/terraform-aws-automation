@@ -83,7 +83,8 @@ terraform apply
 
 ```HCL
 #Check the resource is up
-terraform stat show 'type.name'
+terraform state list
+terraform state show 'type.name'
 ```
 
 ```HCL
