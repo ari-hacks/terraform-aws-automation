@@ -3,11 +3,11 @@ provider "aws" {
 }
 
 resource "aws_iam_group" "admin_example" {
-  name = "administrators"
+  name = "admin_example"
 }
 
-resource "aws_iam_policy_attachment" "admin-example" {
-  name       = "admin-example"
+resource "aws_iam_policy_attachment" "admin-attachement" {
+  name       = "admin-attachement"
   groups     = [aws_iam_group.admin_example.name]
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
