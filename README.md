@@ -1,5 +1,14 @@
 # Automating AWS with Terraform
 
+- [x] [Launch an ec2 instance](/launch-ec2-instance)
+- [X] [Create an s3 bucket](/create-s3-bucket)
+- [x] [Create an s3 backend state](/create-s3-backend-state)
+- [X] [Create an IAM group and policy](/create-iam-group-policy)
+- [x] [Add users to an IAM group](/add-users-to-iam-group)
+  
+## External Resources
+   [Amazon EC2 AMI Locator](https://cloud-images.ubuntu.com/locator/ec2/)
+
 ## Pre-requisite Setup 
 
 #### AWS Account - Free Tier
@@ -28,7 +37,8 @@
   3. linux:   [instructions](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html)
 
 #### AWS CLI configuration 
-   1. aws basic configuration   
+   aws credentials configured locally
+   these credentials are stored  in `~/.aws/credentials`  
 ```
         aws configure   
         AWS Access Key ID [None]: <access key>
@@ -42,3 +52,42 @@
    1. mac: `brew install terraform` | `terraform -help`
    2. windows: `choco install terraform` | `terraform -help`
    3. linux: [download](https://www.terraform.io/downloads.html) | `echo $PATH` | ` mv ~/Downloads/terraform /usr/local/bin/` | `terraform -help`
+
+
+## Local Setup 
+
+clone the repo and navigate to the directory
+```
+git clone https://github.com/ari-hacks/terraform-aws-automation.git
+cd terraform-aws-automation
+```
+
+In the terminal `cd` into one of the directories from the list above
+
+Run these commands to provision with Terraform 
+
+```HCL
+#Initialize Terraform
+terraform init
+```
+
+```HCL
+#Check the plan to make sure the configuration will do what we expect it to do
+terraform plan
+```
+
+```HCL
+#Check the plan to make sure the configuration will do what we expect it to do
+terraform apply
+```
+
+```HCL
+#Check the resource is up
+terraform stat show 'type.name'
+```
+
+```HCL
+#Tear down all provisions
+terraform destroy
+```
+
