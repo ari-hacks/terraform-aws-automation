@@ -77,7 +77,7 @@ terraform plan
 ```
 
 ```HCL
-#Check the plan to make sure the configuration will do what we expect it to do
+#Apply the execution plan and build the stack
 terraform apply
 ```
 
